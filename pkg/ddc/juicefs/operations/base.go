@@ -251,7 +251,7 @@ func (j JuiceFileUtils) GetStatus(source string) (status string, err error) {
 // GetMetric Get pod metrics
 func (j JuiceFileUtils) GetMetric(juicefsPath string) (metrics string, err error) {
 	var (
-		command = []string{"cat", fmt.Sprintf("%s/%s", juicefsPath, ".stats")}
+		command = []string{"/bin/sh", "-c", fmt.Sprintf("cat %s/%s", juicefsPath, ".stats")}
 		stdout  string
 		stderr  string
 	)
